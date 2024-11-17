@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBuddy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://static.vecteezy.com/system/resources/previews/008/916/186/non_2x/tropical-leaf-background-pattern-design-free-vector.jpg");
+        background-repeat: no-repeat;
+        background-size: cover; /* Ensures the image covers the entire page */
+        background-color: #000000; /* Black */
+        line-height: 1.6;
+    }
+
+        h1, h2 {
+            font-family: 'Verdana', sans-serif;
+            color: white;
+            font-weight: 500pt;
+        }
+
+        /* Header */
+        header {
+            background-color: #2e3b2e; /* Dark Green */
+            color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 10px;
+        }
+
+        nav button {
+            background-color: #4CAF50; /* Light Green */
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav button:hover {
+            background-color: #45a049; /* Slightly darker green */
+            transform: scale(1.05);
+        }
+
+        nav button:active {
+            transform: scale(0.98);
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+<!--        background-color: #2b3e2c; /* Dark Green */-->
+            border-top: 5px solid #90EE90; /* Light Green accent */
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section.hidden {
+            display: none;
+        }
+
+        section h2 {
+            color: #90EE90;
+            font-size: 2em;
+        }
+
+        /* Sensor Data Section */
+        #sensor-data {
+            background-color: #3a4f38; /* Medium Dark Green */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #sensor-data p {
+            font-size: 1.2em;
+        }
+
+        #sensor-data span {
+            font-weight: bold;
+            color: #a8dba8; /* Lighter green for values */
+        }
+
+        button {
+            background-color: #4CAF50; /* Light Green */
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        ol li {
+            color:#90EE90; /* Change 'blue' to your desired color */
+        }
+        p {
+          color:#90EE90; /* Change 'blue' to your desired color */
+          }
+        /* Footer */
+        footer {
+            background-color: #2e3b2e; /* Dark Green */
+            color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+            }
+
+            nav button {
+                margin: 5px;
+                padding: 8px 15px;
+            }
+
+            #sensor-data {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 style="color:white;">EcoBuddy</h1>
+        <nav>
+            <!-- Updated buttons with links for navigation -->
+            <button onclick="showSection('sensor')">Sensor Data</button>
+            <button onclick="showSection('about')">About Us</button>
+            <button onclick="showSection('community')">Community</button>
+        </nav>
+    </header>
+    <h2>-- Basic Tips for planting --</h2>
+    <div id="sensor-data">
+    <ol>
+        <li>Give your plants plenty of sunlight based on their specific needs.</li>
+        <li>Water your plants regularly so that the soil is moist but not wet.</li>
+        <li>Fertilize your plants every few weeks so they get the required nutrients.</li>
+        <li>Cut off any dead or diseased limbs to keep your plant healthy.</li>
+    </ol>
+</div>
+    <main id="content">
+        <!-- Sensor Data Section -->
+        <section id="sensor" class="active">
+            <h2>Sensor Data</h2>
+            <div id="sensor-data">
+                <p>Soil Moisture: <span id="moisture">0%</span></p>
+                <p>pH value of soil: <span id="ph">0</span></p>
+                <p>NPK(Nitrogen, Phosphrusm, Potassium) Levels: <span id="npk">N: 0, P: 0, K: 0</span></p>
+                <p>Water Requirement Status: <span id="status"> Not Updated</p>
+                <button onclick="refreshData()">Refresh Data</button>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="hidden">
+            <h2 "color:#02520a;">About Us</h2>
+            <div id="sensor-data">
+            <p>BUILT BY:</p>
+            <ol>
+                <li>Aarush Yadav: App Developer</li>
+                <li>Naitik Kumar: Designer</li>
+                <li>Sanvi Agarwal: Presentation</li>
+                <li>Kashvi Grandhi: Analyst</li>
+          </div>
+            </ol>
+               <div id="sensor-data">
+            <p "color:#Black;">We built it using html,css and the mobile app using python.We used the software
+            pycharm for each and every line of code.The app allows the user to check how well the plant is
+            growing using different sensors such as NPK sensors, ph sensors, moisture
+                detectors and the sensors are simplistic.The app also allows a community page
+                for people to talk about planting as we support #TeamTrees.</p>
+        </section>
+        <section id="community" class="hidden">
+            <h2>Community Chat</h2>
+            <div id="sensor-data">
+           <p style="font-family:Berlin Sans FB Demi; color:#Black;">We will add the feature which will create an interface to allow people to chat,
+            send images and show support to our cause.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Soil Sensor Web App</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(function(section) {
+                section.classList.remove('active');
+                section.classList.add('hidden');
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function refreshData() {
+            // Placeholder function to simulate refreshing data
+            // This could be replaced with actual code to fetch new data
+            document.getElementById('moisture').textContent = '45%';
+            document.getElementById('ph').textContent = '6.5';
+            document.getElementById('npk').textContent = 'N: 20, P: 15, K: 30';
+            document.getElementById('status').textContent = 'Not required now';
+        }
+    </script>
+</body>
+</html>
